@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -15,4 +15,22 @@ model User {
   name     String? @db.VarChar(255)
   email    String  @unique @db.VarChar(255)
   password String
+  Movie    Movie[]
+}
+
+model Movie {
+  id         Int      @id @default(autoincrement())
+  title      String?  @db.VarChar(255)
+  description String? @db.VarChar(255)
+  gender     Gender   @relation(fields: [gender_id], references: [id])
+  gender_id  Int
+  user       User     @relation(fields: [user_Id], references: [id])
+  user_Id    Int
+  created_at DateTime @default(now()) @db.Timestamp(6)
+}
+
+model Gender {
+  id    Int     @id @default(autoincrement())
+  name  String  @db.VarChar(255)
+  Movie Movie[]
 }

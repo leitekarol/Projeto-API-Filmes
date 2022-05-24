@@ -1,5 +1,7 @@
 import userRoutes from "./users-routes.js";
-import authRoutes from "./auth-routes.js";
+import authRoutes from "./authRoutes.js";
+import genderRoutes from "./genderRoutes.js";
+import movieRoute from "./movieRoute.js";
 
 export const renderRoutes = [
   {
@@ -11,6 +13,9 @@ export const renderRoutes = [
   },
   ...Object.values(userRoutes),
   ...Object.values(authRoutes),
+  ...Object.values(genderRoutes),
+  ...Object.values(movieRoute),
+
 ];
 
 export default (fastify, opts, next) => {

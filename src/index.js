@@ -10,3 +10,4 @@ app.listen(envs.PORT, "0.0.0.0", (err) => {
   🚀 Server ready at: http://localhost:${envs.PORT}
   ⭐️ See sample requests: http://pris.ly/e/ts/rest-fastify#3-using-the-rest-api`);
 });
+
